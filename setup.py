@@ -12,7 +12,12 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    # TODO: put package requirements here
+    "rasa-nlu==0.9.1",
+    "scikit-learn==0.18.2",
+    "scipy==0.19.1",
+    "six==1.10.0",
+    "sklearn-crfsuite==0.3.6",
+    "spacy==1.9.0",
 ]
 
 setup_requirements = [
@@ -28,7 +33,7 @@ test_requirements = [
 setup(
     name='ariane_core',
     version='0.1.0',
-    description="Python Boilerplate contains all the boilerplate you need to create a Python package.",
+    description="",
     long_description=readme + '\n\n' + history,
     author="Max Brauer",
     author_email='max@max-brauer.de',
@@ -44,12 +49,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
+        'Natural Language :: German',
         'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',

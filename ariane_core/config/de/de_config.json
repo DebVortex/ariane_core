@@ -1,0 +1,6 @@
+{
+  "pipeline": "spacy_sklearn",
+  "path" : "./models",
+  "data" : "./data/data.json",
+  "language" : "de"
+ }

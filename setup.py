@@ -12,6 +12,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
+    "click==6.7",
     "rasa-nlu==0.9.1",
     "scikit-learn==0.18.2",
     "scipy==0.19.1",
@@ -55,4 +56,8 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     setup_requires=setup_requirements,
+    entry_points='''
+        [console_scripts]
+        ariane=ariane_core:cli
+    ''',
 )

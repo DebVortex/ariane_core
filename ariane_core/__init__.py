@@ -83,8 +83,9 @@ def clear_models(languages):
         model_dirs = os.listdir(model_base_dir)
         for model_dir in model_dirs:
             model_path = os.path.join(model_base_dir, model_dir)
-            click.echo("Deleting {model_path}...".format(model_path=model_path))
-            shutil.rmtree(model_path)
+            if os.path.isdir(model_path):
+                click.echo("Deleting {model_path}...".format(model_path=model_path))
+                shutil.rmtree(model_path)
 
 
 @click.command()

@@ -4,7 +4,9 @@ __author__ = """Max Brauer"""
 __email__ = "max@max-brauer.de"
 __version__ = "0.1.0"
 
+import datetime
 import os
+import json
 from pprint import pprint
 import shutil
 
@@ -12,6 +14,7 @@ import click
 from langdetect import detect
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.converters import load_data
+from rasa_nlu.data_router import DataRouter
 from rasa_nlu.model import Interpreter, Metadata, Trainer
 
 SUPPORTED_LANGUAGES = ["en", "de"]
@@ -101,8 +104,13 @@ def interprete(text, language):
         language = detect(text)
     _check_languages([language])
     metadata = Metadata.load(_get_model_dir(language))
-    interpreter = Interpreter.load(metadata, RasaNLUConfig(_get_config_path(language)))
-    click.echo(pprint(interpreter.parse(text)))
+    config = RasaNLUConfig(_get_config_path(language))
+    interpreter = Interpreter.load(metadata, config)
+    query_logger = DataRouter._create_query_logger(config['response_log'])
+    response = interpreter.parse(text)
+    log = {"user_input": response, "time": datetime.datetime.now().isoformat()}
+    query_logger.info(json.dumps(log, sort_keys=True))
+    click.echo(pprint(response))
 
 
 cli.add_command(train_models)

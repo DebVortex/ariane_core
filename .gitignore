@@ -60,3 +60,6 @@ target/
 
 # pyenv python configuration file
 .python-version
+
+# project related files
+ariane_core/config/*/models/model_*

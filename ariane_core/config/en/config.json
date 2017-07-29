@@ -11,5 +11,6 @@
   ],
   "path" : "./models",
   "data" : "./data/data.json",
-  "language" : "en"
+  "language" : "en",
+  "response_log": "./config/en/logs/"
 }

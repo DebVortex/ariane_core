@@ -13,6 +13,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     "click==6.7",
+    "langdetect==1.0.7",
     "rasa-nlu==0.9.1",
     "scikit-learn==0.18.2",
     "scipy==0.19.1",

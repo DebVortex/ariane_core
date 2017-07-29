@@ -61,5 +61,8 @@ target/
 # pyenv python configuration file
 .python-version
 
+# editor tmpfiles
+*~
+
 # project related files
 ariane_core/config/*/models/model_*

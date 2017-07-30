@@ -20,7 +20,6 @@ from rasa_nlu.data_router import DataRouter
 from rasa_nlu.model import Interpreter, Metadata, Trainer
 
 SUPPORTED_LANGUAGES = ["en", "de"]
-UNSUPPORTED_LANG_MSG = "Language {lang} not supported. Supported are {supported_languages}"
 
 
 def _get_base_path():
@@ -41,20 +40,25 @@ def _get_config_path(lang):
 
 
 def _get_training_data_path(lang, config):
-    training_data = []
+    training_data = {
+        "rasa_nlu_data": {"common_examples": [], "entity_synonyms": [], "regex_features": []},
+    }
     for app_name in config['active_apps']:
-        click.echo("Getting training data for {app}".format(app=app_name))
+        click.echo("Collecting training data for {app}".format(app=app_name))
         data_path = os.path.join(
             os.path.dirname(importlib.import_module(app_name).__file__),
             'training_data/{lang}/data.json'.format(lang=lang)
         )
-        with open(data_path) as data:
-            training_data += json.load(data)
+        with open(data_path) as str_data:
+            data = json.load(str_data)
+            training_data["rasa_nlu_data"]["common_examples"] += data.get("common_examples", [])
+            training_data["rasa_nlu_data"]["entity_synonyms"] += data.get("entity_synonyms", [])
+            training_data["rasa_nlu_data"]["regex_features"] += data.get("regex_features", [])
     with NamedTemporaryFile(delete=False, mode="w", suffix=".json") as training_data_file:
-        click.echo("Generating training data file.")
-        training_data_file.write(
-            json.dumps({"rasa_nlu_data": {"common_examples": training_data}})
-        )
+        click.echo("Writing collected data to file {tmp_file}".format(
+            tmp_file=training_data_file.name
+        ))
+        training_data_file.write(json.dumps(training_data))
     return training_data_file.name
 
 
@@ -62,7 +66,7 @@ def _check_languages(languages):
     for lang in languages:
         if lang not in SUPPORTED_LANGUAGES:
             raise ValueError(
-                UNSUPPORTED_LANG_MSG.format(
+                "Language {lang} not supported. Supported are {supported_languages}".format(
                     **{"lang": lang, "supported_languages": SUPPORTED_LANGUAGES}
                 )
             )
@@ -92,12 +96,13 @@ def train_models(languages):
         click.echo("================== Processing {lang} ==================".format(lang=language))
         training_data = load_data(_get_training_data_path(language, config))
         trainer = Trainer(RasaNLUConfig(cmdline_args=config))
-        click.echo("Training data {lang}.".format(lang=language))
+        click.echo("Training data for language {lang}.".format(lang=language))
         trainer.train(training_data)
-        click.echo("Persisting data for {lang}.".format(lang=language))
+        click.echo("Persisting trained data for {lang}.".format(lang=language))
         model_dir = trainer.persist(_get_model_base_dir(language))
         click.echo("Stored data for {lang} in {path}.".format(lang=language, path=model_dir))
     click.echo("================ Finished Training ================")
+
 
 @click.command()
 @click.option("languages", "--language", "-l", multiple=True, default=SUPPORTED_LANGUAGES,

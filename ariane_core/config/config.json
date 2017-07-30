@@ -9,8 +9,8 @@
     "intent_classifier_sklearn",
     "ner_spacy"
   ],
-  "path" : "./models",
-  "data" : "./data/data.json",
-  "language" : "en",
-  "response_log": "./config/en/logs/"
+  "active_apps": [
+    "ariane_core.apps.chat",
+    "ariane_core.apps.weather"
+  ]
 }

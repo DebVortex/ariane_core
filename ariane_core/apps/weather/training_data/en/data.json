@@ -1,0 +1,49 @@
+{
+    "common_examples": [
+        {
+            "text": "How is the weather?",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "How is the weather in Leipzig?",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "Do I need an umbrella??",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "Will it rain today?",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "Do I have to expect rain?",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "Will it be cold today?",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "Will it be hot today?",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "Is it cold outside?",
+            "intent": "weather",
+            "entities": []
+        },
+        {
+            "text": "Is hit hot outside?",
+            "intent": "weather",
+            "entities": []
+        }
+    ]
+}

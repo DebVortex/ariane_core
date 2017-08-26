@@ -11,7 +11,7 @@
             "entities": []
         },
         {
-            "text": "Do I need an umbrella??",
+            "text": "Do I need an umbrella?",
             "intent": "weather",
             "entities": []
         },

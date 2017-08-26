@@ -65,4 +65,4 @@ target/
 *~
 
 # project related files
-ariane_core/config/*/models/model_*
+ariane/config/*/models/*

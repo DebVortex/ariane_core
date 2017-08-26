@@ -3,18 +3,18 @@ Ariane Core
 ===========
 
 
-.. image:: https://img.shields.io/pypi/v/ariane_core.svg
-        :target: https://pypi.python.org/pypi/ariane_core
+.. image:: https://img.shields.io/pypi/v/ariane.svg
+        :target: https://pypi.python.org/pypi/ariane
 
-.. image:: https://img.shields.io/travis/DebVortex/ariane_core.svg
-        :target: https://travis-ci.org/DebVortex/ariane_core
+.. image:: https://img.shields.io/travis/DebVortex/ariane.svg
+        :target: https://travis-ci.org/DebVortex/ariane
 
-.. image:: https://readthedocs.org/projects/ariane-core/badge/?version=latest
-        :target: https://ariane-core.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/ariane/badge/?version=latest
+        :target: https://ariane.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/DebVortex/ariane_core/shield.svg
-     :target: https://pyup.io/repos/github/DebVortex/ariane_core/
+.. image:: https://pyup.io/repos/github/DebVortex/ariane/shield.svg
+     :target: https://pyup.io/repos/github/DebVortex/ariane/
      :alt: Updates
 
 
@@ -22,7 +22,7 @@ Python Boilerplate contains all the boilerplate you need to create a Python pack
 
 
 * Free software: BSD license
-* Documentation: https://ariane-core.readthedocs.io.
+* Documentation: https://ariane.readthedocs.io.
 
 
 Features

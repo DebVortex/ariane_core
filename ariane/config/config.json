@@ -10,7 +10,7 @@
     "ner_spacy"
   ],
   "active_apps": [
-    "ariane_core.apps.chat",
-    "ariane_core.apps.weather"
+    "ariane.apps.weather",
+    "ariane.apps.knowledge_base"
   ]
 }

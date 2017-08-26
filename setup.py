@@ -33,19 +33,19 @@ test_requirements = [
 ]
 
 setup(
-    name='ariane_core',
+    name='ariane',
     version='0.1.0',
     description="",
     long_description=readme + '\n\n' + history,
     author="Max Brauer",
     author_email='max@max-brauer.de',
-    url='https://github.com/DebVortex/ariane_core',
-    packages=find_packages(include=['ariane_core']),
+    url='https://github.com/DebVortex/ariane',
+    packages=find_packages(include=['ariane']),
     include_package_data=True,
     install_requires=requirements,
     license="BSD license",
     zip_safe=False,
-    keywords='ariane_core',
+    keywords='ariane',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -59,6 +59,6 @@ setup(
     setup_requires=setup_requirements,
     entry_points='''
         [console_scripts]
-        ariane=ariane_core:cli
+        ariane=ariane.cli:main
     ''',
 )

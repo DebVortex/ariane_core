@@ -1,0 +1,49 @@
+{
+    "common_examples": [
+        {
+            "text": "What is the square root of 9?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "Who is Tony Stark?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "What is 3 times 2?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "What is an hectare?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "What is the Bayes' theorem?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "What is the currency of Denmark?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "Where is Leipzig?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "Who is the author of Faust?",
+            "intent": "knowledge_base",
+            "entities": []
+        },
+        {
+            "text": "What is the capital of Gambia?",
+            "intent": "knowledge_base",
+            "entities": []
+        }
+    ]
+}

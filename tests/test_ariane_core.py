@@ -6,9 +6,6 @@
 import pytest
 
 
-from ariane_core import ariane_core
-
-
 @pytest.fixture
 def response():
     """Sample pytest fixture.

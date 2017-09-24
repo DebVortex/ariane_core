@@ -30,7 +30,7 @@ def get_training_data_path(lang, config):
         "rasa_nlu_data": {"common_examples": [], "entity_synonyms": [], "regex_features": []},
     }
     for app_name in config['active_apps']:
-        click.echo("Collecting training data for {app}".format(app=app_name))
+        click.echo(_("Collecting training data for {app}").format(app=app_name))
         data_path = os.path.join(
             os.path.dirname(importlib.import_module(app_name).__file__),
             'training_data/{lang}/data.json'.format(lang=lang)
@@ -52,7 +52,7 @@ def check_languages(languages):
     for lang in languages:
         if lang not in SUPPORTED_LANGUAGES:
             raise ValueError(
-                "Language {lang} not supported. Supported are {supported_languages}".format(
+                _("Language {lang} not supported. Supported are {supported_languages}").format(
                     **{"lang": lang, "supported_languages": SUPPORTED_LANGUAGES}
                 )
             )

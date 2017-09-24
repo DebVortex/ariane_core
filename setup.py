@@ -14,6 +14,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     "click==6.7",
     "langdetect==1.0.7",
+    "py-translate==1.0.3",
     "rasa-nlu==0.9.1",
     "scikit-learn==0.18.2",
     "scipy==0.19.1",
@@ -23,14 +24,16 @@ requirements = [
 ]
 
 setup_requirements = [
-    'pytest-runner',
     # TODO(DebVortex): put setup requirements (distutils extensions, etc.) here
 ]
 
-test_requirements = [
-    'pytest',
-    # TODO: put package test requirements here
-]
+extras_require = {
+    'test': [
+        'pytest==3.2.2',
+        'flake8==3.4.1',
+        'coverage==4.4.1'
+    ]
+}
 
 setup(
     name='ariane',
@@ -55,10 +58,10 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',
-    tests_require=test_requirements,
+    extras_require=extras_require,
     setup_requires=setup_requirements,
     entry_points='''
         [console_scripts]
-        ariane=ariane.cli:main
+        ariane=ariane.core.cli:main
     ''',
 )

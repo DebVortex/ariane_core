@@ -67,10 +67,18 @@ coverage: ## check code coverage quickly with the default Python
 
 portable-objects:
 	find ariane/ -iname "*.py" | xargs xgettext --keyword=_ --language=Python --add-comments --sort-output -o ariane/locale/ariane.pot --from-code=utf-8
-	msgmerge --output-file=ariane/locale/de/LC_MESSAGES/ariane.po ariane/locale/de/LC_MESSAGES/ariane.po ariane/locale/ariane.pot
+	msgmerge --output-file=ariane/locale/en_US/LC_MESSAGES/ariane.po ariane/locale/en_US/LC_MESSAGES/ariane.po ariane/locale/ariane.pot
+	msgmerge --output-file=ariane/locale/de_DE/LC_MESSAGES/ariane.po ariane/locale/de_DE/LC_MESSAGES/ariane.po ariane/locale/ariane.pot
+
+tx-push:
+	tx push --source
+
+tx-pull:
+	tx pull
 
 machine-objects:
-	msgfmt --output-file=ariane/locale/de/LC_MESSAGES/ariane.mo ariane/locale/de/LC_MESSAGES/ariane.po
+	msgfmt --output-file=ariane/locale/en_US/LC_MESSAGES/ariane.mo ariane/locale/en_US/LC_MESSAGES/ariane.po
+	msgfmt --output-file=ariane/locale/de_DE/LC_MESSAGES/ariane.mo ariane/locale/de_DE/LC_MESSAGES/ariane.po
 
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/ariane.rst

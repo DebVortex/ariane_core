@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+
+[ariane.ariane]
+file_filter = ariane/locale/<lang>/LC_MESSAGES/ariane.po
+source_file = ariane/locale/en_US/LC_MESSAGES/ariane.po
+source_lang = en_US
+type = PO
+

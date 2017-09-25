@@ -32,6 +32,9 @@ extras_require = {
         'pytest==3.2.2',
         'flake8==3.4.1',
         'coverage==4.4.1'
+    ],
+    'development': [
+        'transifex-client==0.12.4'
     ]
 }
 

@@ -60,5 +60,7 @@ target/
 # editor tmpfiles
 *~
 
+.transifexrc
+
 # project related files
 ariane/config/*/models/*

@@ -5,32 +5,35 @@ from importlib import import_module
 
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.data_router import DataRouter
-from rasa_nlu.model import Interpreter, Metadata, Trainer
+from rasa_nlu.model import Interpreter, Metadata
 
 from . import utils
 
 
 class Ariane:
 
-    def __init__(self, language):
-        utils.check_languages([language])
+    def __init__(self, languages):
+        utils.check_languages(languages)
 
-        self.language = language
+        self.languages = languages
         self.config = RasaNLUConfig(cmdline_args=utils.load_config())
-        self._metadata = Metadata.load(utils.get_model_dir(language))
-        self._interpreter = Interpreter.load(self._metadata, self.config)
         self.query_logger = DataRouter._create_query_logger(self.config['response_log'])
+        self._metadata = {}
+        self._interpreter = {}
+        for lang in languages:
+            self._metadata[lang] = Metadata.load(utils.get_model_dir(lang))
+            self._interpreter[lang] = Interpreter.load(self._metadata[lang], self.config)
         self.registry = IntentRegistry(self.config['active_apps'])
 
-    def interprete(self, text):
-        response = self._interpreter.parse(text)
+    def interprete(self, text, lang):
+        response = self._interpreter[lang].parse(text)
         log = {"user_input": response, "time": datetime.datetime.now().isoformat()}
         self.query_logger.info(json.dumps(log, sort_keys=True))
         return response
 
-    def handle(self, text):
-        response = self.interprete(text)
-        return self.registry(response, self.language)
+    async def handle(self, text, lang, future):
+        response = self.interprete(text, lang)
+        return await self.registry(response, lang, future)
 
 
 class IntentRegistry:
@@ -40,8 +43,8 @@ class IntentRegistry:
         for app in apps:
             import_module(app)
 
-    def __call__(self, response, language):
-        return self._intents[response['intent']['name']](response, language)
+    def __call__(self, response, language, future):
+        return self._intents[response['intent']['name']](response, language, future)
 
     @classmethod
     def register(cls, intent):

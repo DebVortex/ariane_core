@@ -5,6 +5,8 @@ import importlib
 import json
 from tempfile import NamedTemporaryFile
 
+from ariane.i18n import _
+
 SUPPORTED_LANGUAGES = ["en", "de"]
 
 
@@ -59,6 +61,7 @@ def check_languages(languages):
 
 
 def load_config():
-    with open(os.path.join(get_base_path(), "config/config.json")) as config_file:
+    config_path = os.environ.get('ARIANE_CONFIG_PATH', os.path.join(get_base_path(), "config/config.json"))
+    with open(config_path) as config_file:
         config = json.load(config_file)
     return config

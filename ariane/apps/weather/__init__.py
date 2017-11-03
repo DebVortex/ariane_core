@@ -1,7 +1,7 @@
 import os
 import locale
 
-import requests
+import aiohttp
 
 from ariane.core import IntentRegistry
 
@@ -17,19 +17,20 @@ RETURN_TEXT = m_('In {location} it is {condition} with {temperature} °C.')
 
 
 class WeatherClient:
+    weather_url = 'https://api.openweathermap.org/data/2.5/weather'
 
     def __init__(self, api_key):
         self.api_key = api_key
 
-    def get_current_weather(self, location):
-        return requests.get(
-            'https://api.openweathermap.org/data/2.5/weather',
-            params={'q': location, 'APPID': self.api_key, 'units': 'metric'}
-        ).json()
+    async def get_current_weather(self, location):
+        params = {'q': location, 'APPID': self.api_key, 'units': 'metric'}
+        async with aiohttp.ClientSession() as session:
+            async with await session.get(self.weather_url, params=params) as resp:
+                return await resp.json()
 
 
 @IntentRegistry.register('weather')
-def weather(nlu_response, language):
+async def weather(nlu_response, language, future):
     locale.setlocale(locale.LC_ALL, constants.LOCALES[language])
     api_key = os.environ.get('OPEN_WEATHER_MAP_KEY')
     if not api_key:
@@ -41,7 +42,7 @@ def weather(nlu_response, language):
         if entity['entity'] == 'GPE':
             location = entity['value']
     if location:
-        weather_resp = weather_client.get_current_weather(location)
+        weather_resp = await weather_client.get_current_weather(location)
         response = _(RETURN_TEXT).format(
             location=location,
             temperature=weather_resp['main']['temp'],
@@ -49,4 +50,4 @@ def weather(nlu_response, language):
         )
     else:
         response = _(NO_LOCATION)
-    return response
+    future.set_result(response)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import asyncio
 import os
 import shutil
 
@@ -67,8 +67,8 @@ def interprete(text, language):
     """Interprete the given text."""
     if not language:
         language = detect(text)
-    ariane = Ariane(language)
-    response = ariane.interprete(text)
+    ariane = Ariane([language])
+    response = ariane.interprete(text, language)
     click.echo(response)
 
 
@@ -80,9 +80,12 @@ def handle(text, language):
     """Interprete and handle the given text."""
     if not language:
         language = detect(text)
-    ariane = Ariane(language)
-    response = ariane.handle(text)
-    click.echo(response)
+    ariane = Ariane([language])
+    loop = asyncio.get_event_loop()
+    future = asyncio.Future()
+    loop.run_until_complete(ariane.handle(text, language, future))
+    print(future.result())
+    loop.close()
 
 
 main.add_command(train_models)

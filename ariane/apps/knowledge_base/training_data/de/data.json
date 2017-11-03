@@ -2,48 +2,123 @@
     "common_examples": [
         {
             "text": "Was ist die Wurzel aus 9?",
-            "intent": "knowledge_base",
-            "entities": []
-        },
-        {
-            "text": "Wer ist Tony Stark?",
-            "intent": "knowledge_base",
-            "entities": []
+            "intent": "knowledge_base_wolfram",
+            "entities": [
+                {
+                    "start": 12,
+                    "end": 25,
+                    "value": "Wurzel aus 9",
+                    "entity": "query"
+                }
+            ]
         },
         {
             "text": "Was ist 3 mal 2?",
-            "intent": "knowledge_base",
-            "entities": []
+            "intent": "knowledge_base_wolfram",
+            "entities": [
+                {
+                    "start": 8,
+                    "end": 15,
+                    "value": "3 mal 2",
+                    "entity": "query"
+                }
+            ]
+        },
+        {
+            "text": "Wie viel sind 9 Zoll in Zentimetern",
+            "intent": "knowledge_base_wolfram",
+            "entities": [
+                {
+                    "start": 14,
+                    "end": 35,
+                    "value": "9 Zoll in Zentimetern",
+                    "entity": "query"
+                }
+            ]
+        },
+        {
+            "text": "Wer ist Tony Stark?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 8,
+                    "end": 18,
+                    "value": "Tony Stark",
+                    "entity": "query"
+                }
+            ]
         },
         {
             "text": "Was ist ein Hektar?",
-            "intent": "knowledge_base",
-            "entities": []
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 12,
+                    "end": 18,
+                    "value": "Hektar",
+                    "entity": "query"
+                }
+            ]
         },
         {
             "text": "Was ist der Satz von Bayes?",
-            "intent": "knowledge_base",
-            "entities": []
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 12,
+                    "end": 26,
+                    "value": "Satz von Bayes",
+                    "entity": "query"
+                }
+            ]
         },
         {
             "text": "Was ist die Währung von Dänemark?",
-            "intent": "knowledge_base",
-            "entities": []
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 12,
+                    "end": 32,
+                    "value": "Währung von Dänemark",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "Wo liegt Leipzig?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "Erzähle mir etwas über Leipzig?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 23,
+                    "end": 30,
+                    "value": "Leipzig",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "Wer ist der Autor von Faust?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "Erzähle mir etwas über Faust?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 23,
+                    "end": 28,
+                    "value": "Faust",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "Was ist die Hauptstadt von Gambia?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "Erzähle mir etwas über Gambia?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 23,
+                    "end": 29,
+                    "value": "Gambia",
+                    "entity": "query"
+                }
+            ]
         }
     ]
 }

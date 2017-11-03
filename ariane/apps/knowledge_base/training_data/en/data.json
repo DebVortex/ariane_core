@@ -2,48 +2,123 @@
     "common_examples": [
         {
             "text": "What is the square root of 9?",
-            "intent": "knowledge_base",
-            "entities": []
-        },
-        {
-            "text": "Who is Tony Stark?",
-            "intent": "knowledge_base",
-            "entities": []
+            "intent": "knowledge_base_wolfram",
+            "entities": [
+                {
+                    "start": 12,
+                    "end": 28,
+                    "value": "square root of 9",
+                    "entity": "query"
+                }
+            ]
         },
         {
             "text": "What is 3 times 2?",
-            "intent": "knowledge_base",
-            "entities": []
+            "intent": "knowledge_base_wolfram",
+            "entities": [
+                {
+                    "start": 8,
+                    "end": 17,
+                    "value": "3 times 2",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "What is an hectare?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "How much are 9 inches in centimeters?",
+            "intent": "knowledge_base_wolfram",
+            "entities": [
+                {
+                    "start": 13,
+                    "end": 36,
+                    "value": "9 inches in centimeters",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "What is the Bayes' theorem?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "Who is Tony Stark?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 7,
+                    "end": 17,
+                    "value": "Tony Stark",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "What is the currency of Denmark?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "What is a hectar?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 10,
+                    "end": 16,
+                    "value": "hectar",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "Where is Leipzig?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "What is the theorem of bayes?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 12,
+                    "end": 28,
+                    "value": "theorem of bayes",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "Who is the author of Faust?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "What is the currency of denmark?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 12,
+                    "end": 31,
+                    "value": "currency of denmark",
+                    "entity": "query"
+                }
+            ]
         },
         {
-            "text": "What is the capital of Gambia?",
-            "intent": "knowledge_base",
-            "entities": []
+            "text": "Tell me something about Leipzig?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 24,
+                    "end": 31,
+                    "value": "Leipzig",
+                    "entity": "query"
+                }
+            ]
+        },
+        {
+            "text": "Tell me something about Faust?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 24,
+                    "end": 29,
+                    "value": "Faust",
+                    "entity": "query"
+                }
+            ]
+        },
+        {
+            "text": "Tell me something about Gambia?",
+            "intent": "knowledge_base_wiki",
+            "entities": [
+                {
+                    "start": 24,
+                    "end": 30,
+                    "value": "Gambia",
+                    "entity": "query"
+                }
+            ]
         }
     ]
 }

@@ -26,9 +26,8 @@ class ArianeServer(web.Application):
         text = request.GET.get('q')
         if not language:
             language = detect(text)
-        future = asyncio.Future()
-        await self._handler.handle(text, language, future)
-        body = json.dumps(future.result()).encode('utf-8')
+        resp = await self._handler.handle(text, language)
+        body = json.dumps(resp).encode('utf-8')
         return web.Response(body=body, content_type="application/json")
 
 

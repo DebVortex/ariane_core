@@ -30,7 +30,7 @@ class WeatherClient:
 
 
 @IntentRegistry.register('weather')
-async def weather(nlu_response, language, future):
+async def weather(nlu_response, language):
     locale.setlocale(locale.LC_ALL, constants.LOCALES[language])
     api_key = os.environ.get('OPEN_WEATHER_MAP_KEY')
     if not api_key:
@@ -50,4 +50,4 @@ async def weather(nlu_response, language, future):
         )
     else:
         response = _(NO_LOCATION)
-    future.set_result(response)
+    return response

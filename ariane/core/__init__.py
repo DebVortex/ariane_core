@@ -31,9 +31,9 @@ class Ariane:
         self.query_logger.info(json.dumps(log, sort_keys=True))
         return response
 
-    async def handle(self, text, lang, future):
+    async def handle(self, text, lang):
         response = self.interprete(text, lang)
-        return await self.registry(response, lang, future)
+        return await self.registry(response, lang)
 
 
 class IntentRegistry:
@@ -43,8 +43,8 @@ class IntentRegistry:
         for app in apps:
             import_module(app)
 
-    def __call__(self, response, language, future):
-        return self._intents[response['intent']['name']](response, language, future)
+    def __call__(self, response, language):
+        return self._intents[response['intent']['name']](response, language)
 
     @classmethod
     def register(cls, intent):

@@ -82,9 +82,7 @@ def handle(text, language):
         language = detect(text)
     ariane = Ariane([language])
     loop = asyncio.get_event_loop()
-    future = asyncio.Future()
-    loop.run_until_complete(ariane.handle(text, language, future))
-    print(future.result())
+    print(loop.run_until_complete(ariane.handle(text, language)))
     loop.close()
 
 

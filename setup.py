@@ -12,6 +12,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
+    "aiohttp==2.3.1",
     "click==6.7",
     "langdetect==1.0.7",
     "py-translate==1.0.3",

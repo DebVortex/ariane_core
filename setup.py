@@ -22,6 +22,8 @@ requirements = [
     "six==1.10.0",
     "sklearn-crfsuite==0.3.6",
     "spacy==1.9.0",
+    "wikipedia==1.4.0",
+    "wolframalpha==3.0"
 ]
 
 setup_requirements = [

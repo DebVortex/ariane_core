@@ -4,10 +4,10 @@ import os
 import shutil
 
 import click
-from langdetect import detect
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.converters import load_data
 from rasa_nlu.model import Trainer
+
 
 from . import Ariane
 from . import utils
@@ -66,7 +66,7 @@ def clear_models(languages):
 def interprete(text, language):
     """Interprete the given text."""
     if not language:
-        language = detect(text)
+        language = utils.detect_language(text)
     ariane = Ariane([language])
     response = ariane.interprete(text, language)
     click.echo(response)
@@ -79,7 +79,7 @@ def interprete(text, language):
 def handle(text, language):
     """Interprete and handle the given text."""
     if not language:
-        language = detect(text)
+        language = utils.detect_language(text)
     ariane = Ariane([language])
     loop = asyncio.get_event_loop()
     print(loop.run_until_complete(ariane.handle(text, language)))

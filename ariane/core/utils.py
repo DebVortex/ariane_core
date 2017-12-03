@@ -1,6 +1,7 @@
 import os
 
 import click
+import pycld2
 import importlib
 import json
 from tempfile import NamedTemporaryFile
@@ -65,3 +66,9 @@ def load_config():
     with open(config_path) as config_file:
         config = json.load(config_file)
     return config
+
+
+def detect_language(text):
+    _, _, unsorted_results = pycld2.detect(text, hintLanguageHTTPHeaders='en,de')
+    sorted_results = sorted([d for d in unsorted_results], key=lambda x: -x[3])
+    return sorted_results[0][1]

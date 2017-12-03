@@ -14,7 +14,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     "aiohttp==2.3.1",
     "click==6.7",
-    "langdetect==1.0.7",
+    "pycld2==0.31",
     "py-translate==1.0.3",
     "rasa-nlu==0.9.1",
     "scikit-learn==0.18.2",

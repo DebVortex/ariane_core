@@ -1,17 +1,17 @@
 import asyncio
 import aiohttp
 from aiohttp import web
+import os
 import signal
 import sys
 import json
 
-from langdetect import detect
-
 from ariane.core import Ariane
-from ariane.core.utils import load_config, SUPPORTED_LANGUAGES
+from ariane.core.utils import load_config, detect_language, SUPPORTED_LANGUAGES
 
 
 class ArianeServer(web.Application):
+    _index_tmpl = None
 
     def __init__(self, loop=None, langs=None):
         super().__init__(loop=loop)
@@ -19,14 +19,23 @@ class ArianeServer(web.Application):
             self.langs = SUPPORTED_LANGUAGES
         print("Loading following lanugage models: {langs}".format(langs=', '.join(self.langs)))
         self._handler = Ariane(self.langs)
-        self.router.add_route('GET', '/', self.handle)
+        self.router.add_route('GET', '/', self.index)
+        self.router.add_route('POST', '/api', self.api)
+        self.router.add_static('/static/', os.path.join(os.path.dirname(__file__), 'static'))
 
-    async def handle(self, request):
-        language = request.GET.get('language')
-        text = request.GET.get('q')
+    async def index(self, request):
+        tmpl_path = os.path.join(os.path.dirname(__file__), 'templates', 'index.html')
+        with open(tmpl_path) as tmpl_file:  # repalce with async code
+            index_tmpl = tmpl_file.read()
+        return web.Response(body=index_tmpl, content_type="text/html")
+
+    async def api(self, request):
+        data = await request.post()
+        language = data.get('language')
+        query = data.get('q')
         if not language:
-            language = detect(text)
-        resp = await self._handler.handle(text, language)
+            language = detect_language(query)
+        resp = await self._handler.handle(query, language)
         body = json.dumps(resp).encode('utf-8')
         return web.Response(body=body, content_type="application/json")
 

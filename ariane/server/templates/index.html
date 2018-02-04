@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ariane Test-Interface</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/app.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/static/app.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+        <div class="row">
+            <div class="upper cell">
+                <form id="ariane-form" method="POST">
+                    <div>
+                        <input id="query" name="q">
+                    </div>
+
+                    <div>
+                        <select id="language" name="language">
+                            <option value="">Guess the language</option>
+                            <option value="de">German</option>
+                            <option value="en">English</option>
+                        </select>
+                        <button id="submit" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="lower cell">
+                <div class="output"></div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

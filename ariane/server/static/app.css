@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    background: -moz-radial-gradient(center, ellipse cover, #FFFFFF 0%, #969696 100%); /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #FFFFFF), color-stop(100%, #969696)); /* safari4+,chrome */
+    background: -webkit-radial-gradient(center, ellipse cover, #FFFFFF 0%, #969696 100%); /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, #FFFFFF 0%, #969696 100%); /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, #FFFFFF 0%, #969696 100%); /* ie10+ */
+    background: radial-gradient(ellipse at center, #FFFFFF 0%, #969696 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#969696',GradientType=1 ); /* ie6-9 */
+    width: 100%
+}
+
+.wrapper {
+    width: 700px;
+    margin: 0 auto;
+    height: 100vh;
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.upper {
+    height: 30vh;
+}
+
+.lower {
+    height: 70vh;
+    text-align: center;
+}
+
+.output {
+    border-radius: 15px;
+    padding: 1.5em;
+    background-color: rgba(255, 255, 255, .75);
+    display: none;
+    vertical-align: middle;
+}
+
+#ariane-form {width: 100%;}
+#language {float: left;}
+#submit {float: right;}
+input {width: 100%; margin-bottom: 1em;}

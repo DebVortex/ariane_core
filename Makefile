@@ -65,18 +65,18 @@ coverage: ## check code coverage quickly with the default Python
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
-portable-objects:
-	find ariane/ -iname "*.py" | xargs xgettext --keyword=_ --language=Python --add-comments --sort-output -o ariane/locale/ariane.pot --from-code=utf-8
+portable-objects: ## create portable object files for translations
+	find ariane/ -iname "*.py" | xargs xgettext --keyword=m_ --language=Python --add-comments --sort-output -o ariane/locale/ariane.pot --from-code=utf-8
 	msgmerge --output-file=ariane/locale/en_US/LC_MESSAGES/ariane.po ariane/locale/en_US/LC_MESSAGES/ariane.po ariane/locale/ariane.pot
 	msgmerge --output-file=ariane/locale/de_DE/LC_MESSAGES/ariane.po ariane/locale/de_DE/LC_MESSAGES/ariane.po ariane/locale/ariane.pot
 
-tx-push:
+tx-push: ## push portable object files to transifex for translations
 	tx push --source
 
-tx-pull:
+tx-pull: ## pull updated translations form transifex
 	tx pull
 
-machine-objects:
+machine-objects: ## create machine-objects from translation files
 	msgfmt --output-file=ariane/locale/en_US/LC_MESSAGES/ariane.mo ariane/locale/en_US/LC_MESSAGES/ariane.po
 	msgfmt --output-file=ariane/locale/de_DE/LC_MESSAGES/ariane.mo ariane/locale/de_DE/LC_MESSAGES/ariane.po
 
@@ -106,12 +106,12 @@ install: clean ## install the package to the active Python's site-packages
 install-dev: clean ## install the package and all packages to develop
 	pip install --editable .[test]
 
-install-en:
+install-en: ## install english spacy language-pack
 	python -m spacy download en
 
-install-de:
+install-de: ## install german spacy language-pack
 	python -m spacy download de
 
-install-all-languages: install-de install-en
+install-all-languages: install-de install-en ## install both spacy language-pack
 
-install-all: install-dev install-all-languages
+install-all: install-dev install-all-languages ## install ariane, develeopment packages and all languages

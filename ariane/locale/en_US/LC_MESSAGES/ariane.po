@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-03 22:23+0100\n"
+"POT-Creation-Date: 2018-02-04 12:26+0100\n"
 "PO-Revision-Date: 2017-09-24 19:20+0200\n"
 "Last-Translator: Max Brauer <max@max-brauer.de>\n"
 "Language-Team: English\n"
@@ -26,7 +26,7 @@ msgstr "================ Finished Training ================"
 msgid "================== Processing {lang} =================="
 msgstr "================== Processing {lang} =================="
 
-#: ariane/core/utils.py:35
+#: ariane/core/utils.py:36
 #, python-brace-format
 msgid "Collecting training data for {app}"
 msgstr "Collecting training data for {app}"
@@ -36,12 +36,23 @@ msgstr "Collecting training data for {app}"
 msgid "Deleting {model_path}."
 msgstr "Deleting {model_path}."
 
-#: ariane/core/utils.py:57
+#. Replace with proper localization
+#: ariane/apps/weather/__init__.py:13
+msgid "For what Place do you want to know the weather?"
+msgstr "For what Place do you want to know the weather?"
+
+#. Replace with proper localization
+#: ariane/apps/weather/__init__.py:16
+#, python-brace-format
+msgid "In {location} it is {condition} with {temperature} °C."
+msgstr "In {location} it is {condition} with {temperature} °C."
+
+#: ariane/core/utils.py:58
 #, python-brace-format
 msgid "Language {lang} not supported. Supported are {supported_languages}"
 msgstr "Language {lang} not supported. Supported are {supported_languages}"
 
-#: ariane/apps/weather/__init__.py:37
+#: ariane/apps/weather/__init__.py:38
 msgid ""
 "No OpenWeatherMap ApiKey provided. Please add OPEN_WEATHER_MAP_KEY "
 "environment variable"
@@ -69,221 +80,286 @@ msgstr "Stored data for {lang} in {path}."
 msgid "Training data for language {lang}."
 msgstr "Training data for language {lang}."
 
-#~ msgid "For what Place do you want to know the weather?"
-#~ msgstr "For what Place do you want to know the weather?"
-
-#~ msgid "In {location} it is {condition} with {temperature} °C."
-#~ msgstr "In {location} it is {condition} with {temperature} °C."
-
-#~ msgid "broken clouds"
-#~ msgstr "broken clouds"
-
-#~ msgid "calm"
-#~ msgstr "calm"
-
-#~ msgid "clear sky"
-#~ msgstr "clear sky"
-
-#~ msgid "cold"
-#~ msgstr "cold"
-
-#~ msgid "drizzle"
-#~ msgstr "drizzle"
-
-#~ msgid "drizzle rain"
-#~ msgstr "drizzle rain"
-
-#~ msgid "dust"
-#~ msgstr "dust"
-
-#~ msgid "extreme rain"
-#~ msgstr "extreme rain"
-
-#~ msgid "few clouds"
-#~ msgstr "few clouds"
-
-#~ msgid "fog"
-#~ msgstr "fog"
-
-#~ msgid "freezing rain"
-#~ msgstr "freezing rain"
-
-#~ msgid "fresh breeze"
-#~ msgstr "fresh breeze"
-
-#~ msgid "gale"
-#~ msgstr "gale"
-
-#~ msgid "gentle breeze"
-#~ msgstr "gentle breeze"
-
-#~ msgid "hail"
-#~ msgstr "hail"
-
-#~ msgid "haze"
-#~ msgstr "haze"
-
-#~ msgid "heavy intensity drizzle"
-#~ msgstr "heavy intensity drizzle"
-
-#~ msgid "heavy intensity drizzle rain"
-#~ msgstr "heavy intensity drizzle rain"
-
-#~ msgid "heavy intensity rain"
-#~ msgstr "heavy intensity rain"
-
-#~ msgid "heavy intensity shower rain"
-#~ msgstr "heavy intensity shower rain"
-
-#~ msgid "heavy shower rain and drizzle"
-#~ msgstr "heavy shower rain and drizzle"
-
-#~ msgid "heavy shower snow"
-#~ msgstr "heavy shower snow"
-
-#~ msgid "heavy snow"
-#~ msgstr "heavy snow"
-
-#~ msgid "heavy thunderstorm"
-#~ msgstr "heavy thunderstorm"
-
-#~ msgid "high wind, near gale"
-#~ msgstr "high wind, near gale"
-
-#~ msgid "hot"
-#~ msgstr "hot"
-
-#~ msgid "hurricane"
-#~ msgstr "hurricane"
-
-#~ msgid "light breeze"
-#~ msgstr "light breeze"
-
-#~ msgid "light intensity drizzle"
-#~ msgstr "light intensity drizzle"
-
-#~ msgid "light intensity drizzle rain"
-#~ msgstr "light intensity drizzle rain"
-
-#~ msgid "light intensity shower rain"
-#~ msgstr "light intensity shower rain"
-
-#~ msgid "light rain"
-#~ msgstr "light rain"
-
-#~ msgid "light rain and snow"
-#~ msgstr "light rain and snow"
-
-#~ msgid "light shower snow"
-#~ msgstr "light shower snow"
-
-#~ msgid "light snow"
-#~ msgstr "light snow"
-
-#~ msgid "light thunderstorm"
-#~ msgstr "light thunderstorm"
-
-#~ msgid "mist"
-#~ msgstr "mist"
-
-#~ msgid "moderate breeze"
-#~ msgstr "moderate breeze"
-
-#~ msgid "moderate rain"
-#~ msgstr "moderate rain"
-
-#~ msgid "overcast clouds"
-#~ msgstr "overcast clouds"
-
-#~ msgid "ragged shower rain"
-#~ msgstr "ragged shower rain"
-
-#~ msgid "ragged thunderstorm"
-#~ msgstr "ragged thunderstorm"
-
-#~ msgid "rain and snow"
-#~ msgstr "rain and snow"
-
-#~ msgid "sand"
-#~ msgstr "sand"
-
-#~ msgid "sand, dust whirls"
-#~ msgstr "sand, dust whirls"
-
-#~ msgid "scattered clouds"
-#~ msgstr "scattered clouds"
-
-#~ msgid "severe gale"
-#~ msgstr "severe gale"
-
-#~ msgid "shower drizzle"
-#~ msgstr "shower drizzle"
-
-#~ msgid "shower rain"
-#~ msgstr "shower rain"
-
-#~ msgid "shower rain and drizzle"
-#~ msgstr "shower rain and drizzle"
-
-#~ msgid "shower sleet"
-#~ msgstr "shower sleet"
-
-#~ msgid "shower snow"
-#~ msgstr "shower snow"
-
-#~ msgid "sleet"
-#~ msgstr "sleet"
-
-#~ msgid "smoke"
-#~ msgstr "smoke"
-
-#~ msgid "snow"
-#~ msgstr "snow"
-
-#~ msgid "squalls"
-#~ msgstr "squalls"
-
-#~ msgid "storm"
-#~ msgstr "storm"
-
-#~ msgid "strong breeze"
-#~ msgstr "strong breeze"
-
-#~ msgid "thunderstorm"
-#~ msgstr "thunderstorm"
-
-#~ msgid "thunderstorm with drizzle"
-#~ msgstr "thunderstorm with drizzle"
-
-#~ msgid "thunderstorm with heavy drizzle"
-#~ msgstr "thunderstorm with heavy drizzle"
-
-#~ msgid "thunderstorm with heavy rain"
-#~ msgstr "thunderstorm with heavy rain"
-
-#~ msgid "thunderstorm with light drizzle"
-#~ msgstr "thunderstorm with light drizzle"
-
-#~ msgid "thunderstorm with light rain"
-#~ msgstr "thunderstorm with light rain"
-
-#~ msgid "thunderstorm with rain"
-#~ msgstr "thunderstorm with rain"
-
-#~ msgid "tornado"
-#~ msgstr "tornado"
-
-#~ msgid "tropical storm"
-#~ msgstr "tropical storm"
-
-#~ msgid "very heavy rain"
-#~ msgstr "very heavy rain"
-
-#~ msgid "violent storm"
-#~ msgstr "violent storm"
-
-#~ msgid "volcanic ash"
-#~ msgstr "volcanic ash"
-
-#~ msgid "windy"
-#~ msgstr "windy"
+#: ariane/apps/weather/constants.py:62
+msgid "broken clouds"
+msgstr "broken clouds"
+
+#: ariane/apps/weather/constants.py:71
+msgid "calm"
+msgstr "calm"
+
+#: ariane/apps/weather/constants.py:59
+msgid "clear sky"
+msgstr "clear sky"
+
+#: ariane/apps/weather/constants.py:67
+msgid "cold"
+msgstr "cold"
+
+#: ariane/apps/weather/constants.py:21
+msgid "drizzle"
+msgstr "drizzle"
+
+#: ariane/apps/weather/constants.py:24
+msgid "drizzle rain"
+msgstr "drizzle rain"
+
+#: ariane/apps/weather/constants.py:55
+msgid "dust"
+msgstr "dust"
+
+#: ariane/apps/weather/constants.py:33
+msgid "extreme rain"
+msgstr "extreme rain"
+
+#: ariane/apps/weather/constants.py:60
+msgid "few clouds"
+msgstr "few clouds"
+
+#: ariane/apps/weather/constants.py:53
+msgid "fog"
+msgstr "fog"
+
+#: ariane/apps/weather/constants.py:34
+msgid "freezing rain"
+msgstr "freezing rain"
+
+#: ariane/apps/weather/constants.py:75
+msgid "fresh breeze"
+msgstr "fresh breeze"
+
+#: ariane/apps/weather/constants.py:78
+msgid "gale"
+msgstr "gale"
+
+#: ariane/apps/weather/constants.py:73
+msgid "gentle breeze"
+msgstr "gentle breeze"
+
+#: ariane/apps/weather/constants.py:70
+msgid "hail"
+msgstr "hail"
+
+#: ariane/apps/weather/constants.py:51
+msgid "haze"
+msgstr "haze"
+
+#: ariane/apps/weather/constants.py:22
+msgid "heavy intensity drizzle"
+msgstr "heavy intensity drizzle"
+
+#: ariane/apps/weather/constants.py:25
+msgid "heavy intensity drizzle rain"
+msgstr "heavy intensity drizzle rain"
+
+#: ariane/apps/weather/constants.py:31
+msgid "heavy intensity rain"
+msgstr "heavy intensity rain"
+
+#: ariane/apps/weather/constants.py:37
+msgid "heavy intensity shower rain"
+msgstr "heavy intensity shower rain"
+
+#: ariane/apps/weather/constants.py:27
+msgid "heavy shower rain and drizzle"
+msgstr "heavy shower rain and drizzle"
+
+#: ariane/apps/weather/constants.py:48
+msgid "heavy shower snow"
+msgstr "heavy shower snow"
+
+#: ariane/apps/weather/constants.py:41
+msgid "heavy snow"
+msgstr "heavy snow"
+
+#: ariane/apps/weather/constants.py:15
+msgid "heavy thunderstorm"
+msgstr "heavy thunderstorm"
+
+#: ariane/apps/weather/constants.py:77
+msgid "high wind, near gale"
+msgstr "high wind, near gale"
+
+#: ariane/apps/weather/constants.py:68
+msgid "hot"
+msgstr "hot"
+
+#: ariane/apps/weather/constants.py:66 ariane/apps/weather/constants.py:82
+msgid "hurricane"
+msgstr "hurricane"
+
+#: ariane/apps/weather/constants.py:72
+msgid "light breeze"
+msgstr "light breeze"
+
+#: ariane/apps/weather/constants.py:20
+msgid "light intensity drizzle"
+msgstr "light intensity drizzle"
+
+#: ariane/apps/weather/constants.py:23
+msgid "light intensity drizzle rain"
+msgstr "light intensity drizzle rain"
+
+#: ariane/apps/weather/constants.py:35
+msgid "light intensity shower rain"
+msgstr "light intensity shower rain"
+
+#: ariane/apps/weather/constants.py:29
+msgid "light rain"
+msgstr "light rain"
+
+#: ariane/apps/weather/constants.py:44
+msgid "light rain and snow"
+msgstr "light rain and snow"
+
+#: ariane/apps/weather/constants.py:46
+msgid "light shower snow"
+msgstr "light shower snow"
+
+#: ariane/apps/weather/constants.py:39
+msgid "light snow"
+msgstr "light snow"
+
+#: ariane/apps/weather/constants.py:13
+msgid "light thunderstorm"
+msgstr "light thunderstorm"
+
+#: ariane/apps/weather/constants.py:49
+msgid "mist"
+msgstr "mist"
+
+#: ariane/apps/weather/constants.py:74
+msgid "moderate breeze"
+msgstr "moderate breeze"
+
+#: ariane/apps/weather/constants.py:30
+msgid "moderate rain"
+msgstr "moderate rain"
+
+#: ariane/apps/weather/constants.py:63
+msgid "overcast clouds"
+msgstr "overcast clouds"
+
+#: ariane/apps/weather/constants.py:38
+msgid "ragged shower rain"
+msgstr "ragged shower rain"
+
+#: ariane/apps/weather/constants.py:16
+msgid "ragged thunderstorm"
+msgstr "ragged thunderstorm"
+
+#: ariane/apps/weather/constants.py:45
+msgid "rain and snow"
+msgstr "rain and snow"
+
+#: ariane/apps/weather/constants.py:54
+msgid "sand"
+msgstr "sand"
+
+#: ariane/apps/weather/constants.py:52
+msgid "sand, dust whirls"
+msgstr "sand, dust whirls"
+
+#: ariane/apps/weather/constants.py:61
+msgid "scattered clouds"
+msgstr "scattered clouds"
+
+#: ariane/apps/weather/constants.py:79
+msgid "severe gale"
+msgstr "severe gale"
+
+#: ariane/apps/weather/constants.py:28
+msgid "shower drizzle"
+msgstr "shower drizzle"
+
+#: ariane/apps/weather/constants.py:36
+msgid "shower rain"
+msgstr "shower rain"
+
+#: ariane/apps/weather/constants.py:26
+msgid "shower rain and drizzle"
+msgstr "shower rain and drizzle"
+
+#: ariane/apps/weather/constants.py:43
+msgid "shower sleet"
+msgstr "shower sleet"
+
+#: ariane/apps/weather/constants.py:47
+msgid "shower snow"
+msgstr "shower snow"
+
+#: ariane/apps/weather/constants.py:42
+msgid "sleet"
+msgstr "sleet"
+
+#: ariane/apps/weather/constants.py:50
+msgid "smoke"
+msgstr "smoke"
+
+#: ariane/apps/weather/constants.py:40
+msgid "snow"
+msgstr "snow"
+
+#: ariane/apps/weather/constants.py:57
+msgid "squalls"
+msgstr "squalls"
+
+#: ariane/apps/weather/constants.py:80
+msgid "storm"
+msgstr "storm"
+
+#: ariane/apps/weather/constants.py:76
+msgid "strong breeze"
+msgstr "strong breeze"
+
+#: ariane/apps/weather/constants.py:14
+msgid "thunderstorm"
+msgstr "thunderstorm"
+
+#: ariane/apps/weather/constants.py:18
+msgid "thunderstorm with drizzle"
+msgstr "thunderstorm with drizzle"
+
+#: ariane/apps/weather/constants.py:19
+msgid "thunderstorm with heavy drizzle"
+msgstr "thunderstorm with heavy drizzle"
+
+#: ariane/apps/weather/constants.py:12
+msgid "thunderstorm with heavy rain"
+msgstr "thunderstorm with heavy rain"
+
+#: ariane/apps/weather/constants.py:17
+msgid "thunderstorm with light drizzle"
+msgstr "thunderstorm with light drizzle"
+
+#: ariane/apps/weather/constants.py:10
+msgid "thunderstorm with light rain"
+msgstr "thunderstorm with light rain"
+
+#: ariane/apps/weather/constants.py:11
+msgid "thunderstorm with rain"
+msgstr "thunderstorm with rain"
+
+#: ariane/apps/weather/constants.py:58 ariane/apps/weather/constants.py:64
+msgid "tornado"
+msgstr "tornado"
+
+#: ariane/apps/weather/constants.py:65
+msgid "tropical storm"
+msgstr "tropical storm"
+
+#: ariane/apps/weather/constants.py:32
+msgid "very heavy rain"
+msgstr "very heavy rain"
+
+#: ariane/apps/weather/constants.py:81
+msgid "violent storm"
+msgstr "violent storm"
+
+#: ariane/apps/weather/constants.py:56
+msgid "volcanic ash"
+msgstr "volcanic ash"
+
+#: ariane/apps/weather/constants.py:69
+msgid "windy"
+msgstr "windy"

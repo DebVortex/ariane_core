@@ -2,8 +2,6 @@ import wikipedia
 
 from ariane.core import IntentRegistry
 
-from ...i18n import m_, _
-
 
 @IntentRegistry.register('knowledge_base_wolfram')
 async def wolfram(nlu_response, language):

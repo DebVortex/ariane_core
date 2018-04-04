@@ -4,9 +4,6 @@ import os
 import shutil
 
 import click
-from rasa_nlu.config import RasaNLUConfig
-from rasa_nlu.converters import load_data
-from rasa_nlu.model import Trainer
 
 
 from . import Ariane
@@ -29,17 +26,7 @@ def main():
 def train_models(languages):
     """Generate your trained model."""
     utils.check_languages(languages)
-    config = utils.load_config()
-    for language in languages:
-        click.echo(_("================== Processing {lang} ==================").format(lang=language))
-        training_data = load_data(utils.get_training_data_path(language, config))
-        trainer = Trainer(RasaNLUConfig(cmdline_args=config))
-        click.echo(_("Training data for language {lang}.").format(lang=language))
-        trainer.train(training_data)
-        click.echo(_("Persisting trained data for {lang}.").format(lang=language))
-        model_dir = trainer.persist(utils.get_model_base_dir(language))
-        click.echo(_("Stored data for {lang} in {path}.").format(lang=language, path=model_dir))
-    click.echo(_("================ Finished Training ================"))
+    raise NotImplemented("Under construction. Code is being portet to snips.")
 
 
 @click.command()

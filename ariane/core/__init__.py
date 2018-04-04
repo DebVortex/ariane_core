@@ -3,10 +3,6 @@ import json
 
 from importlib import import_module
 
-from rasa_nlu.config import RasaNLUConfig
-from rasa_nlu.data_router import DataRouter
-from rasa_nlu.model import Interpreter, Metadata
-
 from . import utils
 
 
@@ -16,19 +12,12 @@ class Ariane:
         utils.check_languages(languages)
 
         self.languages = languages
-        self.config = RasaNLUConfig(cmdline_args=utils.load_config())
-        self.query_logger = DataRouter._create_query_logger(self.config['response_log'])
-        self._metadata = {}
+        self.registry = IntentRegistry()  # TODO: inject apps
         self._interpreter = {}
-        for lang in languages:
-            self._metadata[lang] = Metadata.load(utils.get_model_dir(lang))
-            self._interpreter[lang] = Interpreter.load(self._metadata[lang], self.config)
-        self.registry = IntentRegistry(self.config['active_apps'])
 
     def interprete(self, text, lang):
+        raise NotImplemented("Under construction. Code is being portet to snips.")
         response = self._interpreter[lang].parse(text)
-        log = {"user_input": response, "time": datetime.datetime.now().isoformat()}
-        self.query_logger.info(json.dumps(log, sort_keys=True))
         return response
 
     async def handle(self, text, lang):

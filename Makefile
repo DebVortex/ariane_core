@@ -104,4 +104,5 @@ install: clean ## install the package to the active Python's site-packages
 	pip install .
 
 install-dev: clean ## install the package and all packages to develop
-	pip install --editable .[test,development]
+	pip install --editable .[test]
+	pip install -r requirements_dev.txt

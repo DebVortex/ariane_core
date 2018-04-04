@@ -15,15 +15,8 @@ requirements = [
     "aiohttp==2.3.1",
     "click==6.7",
     "pycld2==0.31",
-    "py-translate==1.0.3",
-    "rasa-nlu==0.9.1",
-    "scikit-learn==0.18.2",
-    "scipy==0.19.1",
-    "six==1.10.0",
-    "sklearn-crfsuite==0.3.6",
-    "spacy==1.9.0",
+    "snips-nlu==0.12.1",
     "wikipedia==1.4.0",
-    "wolframalpha==3.0"
 ]
 
 setup_requirements = [
@@ -35,9 +28,6 @@ extras_require = {
         'pytest==3.2.2',
         'flake8==3.4.1',
         'coverage==4.4.1'
-    ],
-    'development': [
-        'transifex-client==0.12.4'
     ]
 }
 

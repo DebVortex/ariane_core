@@ -104,14 +104,4 @@ install: clean ## install the package to the active Python's site-packages
 	pip install .
 
 install-dev: clean ## install the package and all packages to develop
-	pip install --editable .[test]
-
-install-en: ## install english spacy language-pack
-	python -m spacy download en
-
-install-de: ## install german spacy language-pack
-	python -m spacy download de
-
-install-all-languages: install-de install-en ## install both spacy language-pack
-
-install-all: install-dev install-all-languages ## install ariane, develeopment packages and all languages
+	pip install --editable .[test,development]

@@ -26,7 +26,7 @@ def main():
 def train_models(languages):
     """Generate your trained model."""
     utils.check_languages(languages)
-    raise NotImplemented("Under construction. Code is being portet to snips.")
+    raise NotImplementedError("Under construction. Code is being portet to snips.")
 
 
 @click.command()
@@ -35,15 +35,14 @@ def train_models(languages):
          "Defaults to {langs}""".format(langs=utils.SUPPORTED_LANGUAGES))
 def clear_models(languages):
     """Clear trained models."""
+    config = utils.get_config()
     for language in languages:
         click.echo(_("Processing {lang}.").format(lang=language))
-        model_base_dir = utils.get_model_base_dir(language)
-        model_dirs = os.listdir(model_base_dir)
-        for model_dir in model_dirs:
-            model_path = os.path.join(model_base_dir, model_dir)
-            if os.path.isdir(model_path):
-                click.echo(_("Deleting {model_path}.").format(model_path=model_path))
-                shutil.rmtree(model_path)
+        lang_dir = os.path.join(config.MODEL_BASE_DIR, language)
+        for model_file in os.listdir(lang_dir):
+            model = os.path.join(lang_dir, model_file)
+            click.echo(_("Removing model {model}.".format(model=model)))
+            os.remove(model)
 
 
 @click.command()

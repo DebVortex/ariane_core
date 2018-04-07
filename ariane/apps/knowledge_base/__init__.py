@@ -3,12 +3,12 @@ import wikipedia
 from ariane.core import IntentRegistry
 
 
-@IntentRegistry.register('knowledge_base_wolfram')
+@IntentRegistry.register('wolfram')
 async def wolfram(nlu_response, language):
     raise NotImplementedError("Under construction. Code is being portet to snips.")
 
 
-@IntentRegistry.register('knowledge_base_wiki')
+@IntentRegistry.register('wiki')
 async def wiki(nlu_response, language):
     wikipedia.set_lang(language)
     query = nlu_response['entities'][-1]['value']

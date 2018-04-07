@@ -3,6 +3,12 @@ import json
 
 from importlib import import_module
 
+import os
+from glob import glob
+
+import snips_nlu
+
+
 from . import utils
 
 
@@ -16,9 +22,19 @@ class Ariane:
         self.languages = languages
         self.registry = IntentRegistry(config.ACTIVE_APPS)
         self._interpreter = {}
+        for language in languages:
+            models = os.path.join(config.MODEL_BASE_DIR, language, '*.json')
+            model_files = glob(models)
+            if model_files:
+                model_file_path = model_files[0]
+                with open(model_file_path, 'r') as model_file:
+                    model = json.load(model_file)
+                    snips_nlu.load_resources(language)
+                    self._interpreter[language] = snips_nlu.SnipsNLUEngine.from_dict(model)
+            else:
+                raise FileNotFoundError("Model for language {lang} not found.".format(lang=language))
 
     def interprete(self, text, lang):
-        raise NotImplementedError("Under construction. Code is being portet to snips.")
         response = self._interpreter[lang].parse(text)
         return response
 
@@ -35,7 +51,7 @@ class IntentRegistry:
             import_module(app)
 
     def __call__(self, response, language):
-        return self._intents[response['intent']['name']](response, language)
+        return self._intents[response['intent']['intentName']](response, language)
 
     @classmethod
     def register(cls, intent):

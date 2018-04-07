@@ -9,7 +9,7 @@ from ariane.i18n import _
 def get_config():
     config_module = os.environ.get("ARIANE_CONFIG_MODULE", 'ariane.core.config')
     config_class = os.environ.get("ARIANE_CONFIG_CLASS", 'BaseConfig')
-    return getattr(import_module(config_module), config_class)
+    return getattr(import_module(config_module), config_class)()
 
 
 def check_languages(languages):
@@ -23,7 +23,10 @@ def check_languages(languages):
 
 
 def detect_language(text):
-    _, _, unsorted_results = pycld2.detect(text, hintLanguageHTTPHeaders='en,de')
+    _, _, unsorted_results = pycld2.detect(
+        text,
+        hintLanguageHTTPHeaders=','.join(SUPPORTED_LANGUAGES)
+    )
     sorted_results = sorted([d for d in unsorted_results], key=lambda x: -x[3])
     return sorted_results[0][1]
 

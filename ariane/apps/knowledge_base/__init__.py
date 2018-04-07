@@ -5,7 +5,7 @@ from ariane.core import IntentRegistry
 
 @IntentRegistry.register('knowledge_base_wolfram')
 async def wolfram(nlu_response, language):
-    raise NotImplemented()
+    raise NotImplementedError("Under construction. Code is being portet to snips.")
 
 
 @IntentRegistry.register('knowledge_base_wiki')

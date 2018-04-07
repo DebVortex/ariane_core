@@ -11,12 +11,14 @@ class Ariane:
     def __init__(self, languages):
         utils.check_languages(languages)
 
+        config = utils.get_config()
+
         self.languages = languages
-        self.registry = IntentRegistry()  # TODO: inject apps
+        self.registry = IntentRegistry(config.ACTIVE_APPS)
         self._interpreter = {}
 
     def interprete(self, text, lang):
-        raise NotImplemented("Under construction. Code is being portet to snips.")
+        raise NotImplementedError("Under construction. Code is being portet to snips.")
         response = self._interpreter[lang].parse(text)
         return response
 

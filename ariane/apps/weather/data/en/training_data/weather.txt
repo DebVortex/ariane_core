@@ -1,0 +1,9 @@
+How is the weather?
+How is the weather in Leipzig?
+Do I need an umbrella?
+Will it rain today?
+Do I have to expect rain?
+Will it be cold today?
+Will it be hot today?
+Is it cold outside?
+Is it hot outside?

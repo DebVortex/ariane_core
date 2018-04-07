@@ -1,0 +1,9 @@
+Wie ist das Wetter?
+Wie ist das Wetter in Leipzig?
+Brauche ich einen Regenschirm?
+Wird es heute regnen?
+Ist mit Schneefall zu rechnen?
+Wird es heute kalt?
+Wird es heute heiß?
+Ist es kalt draußen?
+Ist es warm draußen?

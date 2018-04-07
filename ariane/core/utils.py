@@ -1,8 +1,15 @@
+import os
+from importlib import import_module
+
 import pycld2
 
 from ariane.i18n import _
 
-SUPPORTED_LANGUAGES = ["en", "de"]
+
+def get_config():
+    config_module = os.environ.get("ARIANE_CONFIG_MODULE", 'ariane.core.config')
+    config_class = os.environ.get("ARIANE_CONFIG_CLASS", 'BaseConfig')
+    return getattr(import_module(config_module), config_class)
 
 
 def check_languages(languages):
@@ -19,3 +26,6 @@ def detect_language(text):
     _, _, unsorted_results = pycld2.detect(text, hintLanguageHTTPHeaders='en,de')
     sorted_results = sorted([d for d in unsorted_results], key=lambda x: -x[3])
     return sorted_results[0][1]
+
+
+SUPPORTED_LANGUAGES = get_config().SUPPORTED_LANGUAGES

@@ -1,9 +1,9 @@
-How is the weather?
-How is the weather in Leipzig?
+How is the weather in [location:town](Leipzig)?
+Will it be cold today in [location:town](Cologne)?
+Will it be hot today in [location:town](Hamburg)?
+How is the weather in [location:town](Munic)?
+Do I have to expect snowfall in [location:town](Berlin)?
 Do I need an umbrella?
 Will it rain today?
-Do I have to expect rain?
-Will it be cold today?
-Will it be hot today?
 Is it cold outside?
 Is it hot outside?

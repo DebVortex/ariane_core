@@ -1,9 +1,9 @@
-Wie ist das Wetter?
-Wie ist das Wetter in Leipzig?
+Wie ist das Wetter in [location:town](Leipzig)?
+Wird es heute kalt in [location:town](Köln)?
+Wird es heute heiß in [location:town](Hamburg)?
+Wie ist das Wetter in [location:town](München)?
+Ist mit Schneefall in [location:town](Berlin) zu rechnen?
 Brauche ich einen Regenschirm?
 Wird es heute regnen?
-Ist mit Schneefall zu rechnen?
-Wird es heute kalt?
-Wird es heute heiß?
 Ist es kalt draußen?
 Ist es warm draußen?

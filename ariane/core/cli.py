@@ -34,35 +34,36 @@ def train_models(languages):
     utils.check_languages(languages)
     config = utils.get_config()
     for language in languages:
-        click.echo("Processing language {lang}.".format(lang=language))
+        click.echo("Processing language {lang}".format(lang=language))
         intent_files, entity_files = [], []
         for app_module in config.ACTIVE_APPS:
-            click.echo("Collecting data for {app_module}".format(app_module=app_module))
+            click.echo("  Collecting data for {app_module}".format(app_module=app_module))
             app = import_module(app_module)
             app_dir = os.path.dirname(app.__file__)
             data_path = os.path.join(app_dir, 'data', language)
             intent_data = os.path.join(data_path, 'intent_data')
             entity_data = os.path.join(data_path, 'entity_data')
             if os.path.isdir(data_path):
-                click.echo("Collecting intent data.")
+                click.echo("    Collecting intent data")
                 if os.path.isdir(intent_data):
                     for training_file in os.listdir(intent_data):
                         intent_files.append(os.path.join(intent_data, training_file))
-                click.echo("Collecting entity data.")
+                click.echo("    Collecting entity data")
                 if os.path.isdir(entity_data):
                     for entity in os.listdir(entity_data):
                         entity_files.append(os.path.join(entity_data, entity))
         if not intent_files:
-            click.echo("No intent data found. Skipping...")
+            click.echo("  No intent data found. Skipping...")
             continue
         cmd = ['generate-dataset', '--language', language, '--intent-files', *intent_files]
         if entity_files:
             cmd = cmd + ['--entity-files', *entity_files]
+        click.echo("  Building training data for {lang}".format(lang=language))
         process = Popen(cmd, stdout=PIPE)
         status_code = process.wait()
         stdout, stderr = process.communicate()
         if status_code == 0:
-            click.echo('Loading language data for {lang}.'.format(lang=language))
+            click.echo('  Loading language data for {lang}.'.format(lang=language))
             snips_nlu.load_resources(language)
             engine = snips_nlu.SnipsNLUEngine()
             engine.fit(json.loads(str(stdout, 'utf-8')))
@@ -70,7 +71,7 @@ def train_models(languages):
             model_file_path = os.path.join(config.MODEL_BASE_DIR, language, model_file_name)
             with open(model_file_path, 'w') as model_file:
                 model_file.write(json.dumps(engine.to_dict()))
-                click.echo("Generated model for {lang} in {model_file_path}.".format(lang=language, model_file_path=model_file_path))
+                click.echo("  Generated model for {lang} in {model_file_path}.".format(lang=language, model_file_path=model_file_path))
 
 
 @click.command()
